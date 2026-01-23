@@ -2,7 +2,7 @@
 
 Minimal Dutch text cleaning utilities with CGN-style conventions.
 
-## Install
+## installation
 ```bash
-pip install "git+https://github.com/martijnbentum/dutch-text-clean.git"
+pip install git+https://github.com/martijnbentum/dutch-text-clean.git
 
