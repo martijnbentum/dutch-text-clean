@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dutch-text-clean"
+version = "0.1.0"
+dependencies = []
+description = "Minimal Dutch text cleaning utilities with CGN conventions"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+  {name = "Martijn Bentum"}
+]
+
+[tool.setuptools.packages.find]
+where = ["dutch_text_clean"]
+
