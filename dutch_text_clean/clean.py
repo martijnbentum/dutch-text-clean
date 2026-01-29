@@ -10,7 +10,7 @@ def clean_dutch_cgn(text):
     text = normalize_ellipsis_to_eol(text)
     tokens = remove_cgn_codes_from_tokens(text.split(), cgn_utils.star_list)
     tokens = expand_clitic_tokens(tokens, cgn_utils.cgn_clitic_map)
-    tokens = remove_unwanted_tokens(tokens, cgn_utils.remove_words
+    tokens = remove_unwanted_tokens(tokens, cgn_utils.remove_words)
     text = ' '.join(tokens)
     text = keep_allowed_chars(text)
     text = remove_non_word_dashes(text)
@@ -25,7 +25,7 @@ def remove_unwanted_tokens(tokens, remove_words):
     output = []
     for token in tokens:
         tok = token.strip(string.punctuation)
-        if tok in remove_words:
+        if tok.lower() in remove_words:
             continue
         output.append(token)
     return output
@@ -137,11 +137,11 @@ test_sentences = [
     "  m’n   auto*a kapot...  'k  ben  boos!!! ",
     "  d’r  hond*n   liep  weg . . .  ‘t   was  stil?? ",
     "ja   ...   nee   ?! ?!   'k   snap  't  echt  niet*d ",
-    "  ‘t   is   klaar!!   z’n   idee*x  werkte  niet . . .  ",
-    "dit  -  echt  -  werkt  niet!!!",
+    "  ‘t   is   klaar!!   z’n   idee*x  werkte  niet . . .  uhm",
+    "dit  -  echt  -  werkt  niet!!! Xxx.",
     "-  nee  -  zo  bedoel  ik  het  niet",
-    "co-op  is  iets  anders  dan  co op  -  echt!",
-    "dit-is-goed  maar  dit  -  is  fout",
+    "co-op  is  iets  anders  dan  co op  -  echt! xxx.",
+    "dit-is-goed  maar  dit  -  is  fout ggg",
 ]
 
 def small_test():

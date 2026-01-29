@@ -35,7 +35,7 @@ https://taalmaterialen.ivdnt.org/wp-content/uploads/documentatie/cgn_website/doc
  gebruik *x bij woorden waarvan u niet zeker bent of u ze goed heeft verstaan (zie C8).
 '''
 
-remove_words = ["ggg","uh","uhu","uhm","uh-hu","mm-hu","mmm","xxx","Xxx"]
+remove_words = ["ggg","uh","uhu","uhm","uh-hu","mm-hu","mmm","xxx"]
     
     
     
