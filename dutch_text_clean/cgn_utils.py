@@ -5,7 +5,7 @@ cgn_clitic_map = {
     "'r": "er",
     "m'n": "mijn",
     "z'n": "zijn",
-    "d'r": "haar",
+    "d'r": "daar",
     "'s": "is",
     "da's": "dat is",
     "'tis": "het is",

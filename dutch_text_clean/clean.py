@@ -1,5 +1,6 @@
 from . import cgn_utils
 import re
+import string
 import unicodedata
 
 def clean_dutch_cgn(text):
@@ -9,6 +10,7 @@ def clean_dutch_cgn(text):
     text = normalize_ellipsis_to_eol(text)
     tokens = remove_cgn_codes_from_tokens(text.split(), cgn_utils.star_list)
     tokens = expand_clitic_tokens(tokens, cgn_utils.cgn_clitic_map)
+    tokens = remove_unwanted_tokens(tokens, cgn_utils.remove_words
     text = ' '.join(tokens)
     text = keep_allowed_chars(text)
     text = remove_non_word_dashes(text)
@@ -16,6 +18,17 @@ def clean_dutch_cgn(text):
     text = normalize_whitespace(text)
     text = collapse_multiple_eols(text)
     return text
+
+def remove_unwanted_tokens(tokens, remove_words):
+    '''Remove unwanted tokens from a list of tokens.
+    '''
+    output = []
+    for token in tokens:
+        tok = token.strip(string.punctuation)
+        if tok in remove_words:
+            continue
+        output.append(token)
+    return output
 
 
 def normalize_unicode(text):
