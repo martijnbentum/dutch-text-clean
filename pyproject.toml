@@ -14,6 +14,4 @@ authors = [
   {name = "Martijn Bentum"}
 ]
 
-[tool.setuptools.packages.find]
-where = ["dutch_text_clean"]
 
