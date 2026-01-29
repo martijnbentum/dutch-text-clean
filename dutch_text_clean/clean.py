@@ -36,7 +36,7 @@ def lowercase(text):
     'Lowercase text'
     return text.lower()
 
-def normalize_sentence_question_and_exclamation_mark(text):
+def normalize_question_and_exclamation_mark(text):
     '''Collapse repeated sentence-final punctuation to a single ? or !
     '''
     def repl(match):
@@ -46,7 +46,7 @@ def normalize_sentence_question_and_exclamation_mark(text):
 
 def normalize_ellipsis_to_eol(text):
     "CGN: treat ellipsis (...) as an end-of-line marker"
-    text = normalize_sentence_punctuation(text)
+    text = normalize_question_and_exclamation_mark(text)
     text = re.sub(r'\.{3,}', '.', text)     # '...' or longer -> newline
     text = re.sub(r'\s+([.?!])', r'\1', text)
     return text
@@ -117,9 +117,9 @@ def collapse_multiple_eols(text):
 test_sentences = [
     "  'k   weet   't   niet...   z'n   fiets*a  is  kapot!!??  ",
     "d’r  jas*d,  ja  —  die  heb  'k   gezien...  echt!!! ",
-    "tis   wel  mooi??!!   maar   m’n  huis*z   nee... ",
+    "'tis   wel  mooi??!!   maar   m’n  huis*z   nee... ",
     "  ‘k   zag  'm   lopen*v,   en   d’rin  stond  iets?? ",
-    "da’s   raar . . .   ‘t   klopt*d  niet!!! ",
+    "Da’s   raar . . .   ‘t   klopt*d  niet!!! ",
     "  z’n  broer*v  zei:   “nee!!”   maar  'k  denk  ??  anders ",
     "  m’n   auto*a kapot...  'k  ben  boos!!! ",
     "  d’r  hond*n   liep  weg . . .  ‘t   was  stil?? ",
